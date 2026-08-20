@@ -3,52 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Pertama Saya</title>
-
+    <title>Surat Cinta untuk Tiara</title>
+    <!-- Import Font Romantis dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffe6e8;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
-            padding-top: 150px;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
         }
 
-        h1 {
-            font-size: 45px;
+        /* 1. Tampilan Amplop Surat */
+        .envelope-card {
+            background: #ffffff;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5);
+            border: 2px solid #ffb6c1;
+            transition: transform 0.3s ease;
         }
 
-        p {
-            font-size: 20px;
+        .envelope-card h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: #d63384;
+            margin-bottom: 20px;
         }
 
-        button {
-            padding: 12px 25px;
+        .btn-read {
+            background: #ff4d6d;
+            color: white;
             border: none;
-            border-radius: 10px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-read:hover {
+            background: #c9184a;
+            transform: scale(1.05);
+        }
+
+        /* 2, 3, 4. Tampilan Pesan Cinta & Media */
+        .letter-content {
+            display: none;
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .romantic-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: #800f2f;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .media-container {
+            margin: 20px 0;
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .poem {
+            font-style: italic;
+            color: #590d22;
+            margin: 25px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            border-top: 1px linear-gradient(#ffb6c1, transparent) stroke;
+            padding-top: 15px;
+        }
+
+        /* Animasi Panda */
+        .panda-box {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .panda-img {
+            width: 130px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .panda-speech {
+            background: #ffb6c1;
+            color: #590d22;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 1.1rem;
         }
     </style>
 </head>
-
 <body>
 
     <div class="container">
-        <h1>🎉 Website Saya Berhasil!</h1>
+        <!-- Step 1: Amplop Utama -->
+        <div class="envelope-card" id="envelope">
+            <h1>To Tiara Nova Risa</h1>
+            <button class="btn-read" onclick="openLetter()">Baca Surat 💌</button>
+        </div>
 
-        <p>
-            Website ini dibuat dan dipublikasikan menggunakan Vercel.
-        </p>
+        <!-- Step 2, 3, 4: Isi Surat, Video, Musik, Puisi, & Panda -->
+        <div class="letter-content" id="letter">
+            <div class="romantic-text">
+                "Setiap detik tanpamu adalah kesunyian, dan bersamamu adalah keindahan yang tak ingin usai..."
+            </div>
 
-        <button onclick="alert('Halo! Website berhasil berjalan 🚀')">
-            Klik Saya
-        </button>
+            <div class="media-container">
+                <!-- Video Romantis (Ganti src dengan link video Anda) -->
+                <video id="myVideo" controls autoplay loop muted>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+            </div>
+
+            <!-- Musik Latar (Ganti src dengan link lagu romantis Anda) -->
+            <audio id="myAudio" autoplay loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Step 3: Kata Penutup / Puisi -->
+            <div class="poem">
+                <p>Di antara jutaan bintang di angkasa,<br>
+                Matamulah yang paling terang menuntun rasa.<br>
+                Terima kasih telah menjadi bagian terindah,<br>
+                Dalam tiap lembar kisah yang takkan pernah sirna.</p>
+            </div>
+
+            <!-- Step 4: Animasi Panda Memegang Bunga -->
+            <div class="panda-box">
+                <img class="panda-img" src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Panda Bunga">
+                <div class="panda-speech">I Love you Tiara Nova Risa ❤️</div>
+            </div>
+        </div>
     </div>
 
+    <script>
+        function openLetter() {
+            // Sembunyikan Amplop
+            document.getElementById('envelope').style.display = 'none';
+            
+            // Tampilkan Isi Surat
+            const letter = document.getElementById('letter');
+            letter.style.display = 'block';
+
+            // Putar Audio & Video
+            const audio = document.getElementById('myAudio');
+            const video = document.getElementById('myVideo');
+            
+            audio.play();
+            video.play();
+            video.muted = false; // Unmute video saat diklik
+
+            // Step 5: Kembali tertutup otomatis setelah 15 detik
+            setTimeout(() => {
+                // Hentikan musik & video
+                audio.pause();
+                audio.currentTime = 0;
+                video.pause();
+                video.currentTime = 0;
+
+                // Kembalikan ke tampilan awal (Amplop)
+                letter.style.display = 'none';
+                document.getElementById('envelope').style.display = 'block';
+            }, 15000); // 15000ms = 15 detik (bisa diubah durasinya)
+        }
+    </script>
 </body>
 </html>
